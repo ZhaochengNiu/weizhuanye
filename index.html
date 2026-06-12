@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>微专业招生宣传</title>
+  <meta name="description" content="学院微专业招生宣传页，介绍培养目标、课程特色、报名方式与咨询信息。">
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #5e6b78;
+      --line: #d8e0e7;
+      --paper: #f7f9fb;
+      --white: #ffffff;
+      --blue: #1f6fb2;
+      --teal: #0c8c88;
+      --gold: #c68622;
+      --rose: #b34b5f;
+      --shadow: 0 18px 45px rgba(23, 32, 42, .12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hero {
+      min-height: 86vh;
+      display: grid;
+      align-items: center;
+      padding: 36px 24px 64px;
+      color: var(--white);
+      background:
+        linear-gradient(100deg, rgba(9, 31, 52, .88), rgba(7, 66, 80, .74) 52%, rgba(16, 96, 92, .62)),
+        url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1800&q=85") center/cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 90px;
+      background: linear-gradient(0deg, var(--paper), rgba(247, 249, 251, 0));
+      pointer-events: none;
+    }
+
+    .hero-inner,
+    .section-inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+      color: rgba(255, 255, 255, .9);
+      font-size: 14px;
+    }
+
+    .tag {
+      border: 1px solid rgba(255, 255, 255, .42);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, .1);
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(36px, 7vw, 72px);
+      line-height: 1.08;
+      letter-spacing: 0;
+      font-weight: 800;
+    }
+
+    .lead {
+      max-width: 740px;
+      margin: 24px 0 0;
+      font-size: clamp(17px, 2.4vw, 23px);
+      color: rgba(255, 255, 255, .9);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 11px 18px;
+      border-radius: 6px;
+      font-weight: 700;
+      background: var(--white);
+      color: #10334c;
+    }
+
+    .button.secondary {
+      color: var(--white);
+      background: rgba(255, 255, 255, .14);
+      border: 1px solid rgba(255, 255, 255, .48);
+    }
+
+    section {
+      padding: 54px 24px;
+    }
+
+    .notice {
+      margin-top: -52px;
+      padding-top: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .notice-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .notice-item {
+      padding: 14px;
+      border-left: 4px solid var(--blue);
+      background: #f9fbfd;
+    }
+
+    .notice-item:nth-child(2) {
+      border-color: var(--teal);
+    }
+
+    .notice-item:nth-child(3) {
+      border-color: var(--gold);
+    }
+
+    .notice-item:nth-child(4) {
+      border-color: var(--rose);
+    }
+
+    .notice-item strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .notice-item span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin: 0 0 28px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.22;
+      letter-spacing: 0;
+    }
+
+    .section-title p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .feature-grid,
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .feature,
+    .course,
+    .timeline-item {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .feature b,
+    .course b {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .feature p,
+    .course p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .band {
+      background: #ffffff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      counter-reset: step;
+    }
+
+    .timeline-item {
+      position: relative;
+      min-height: 170px;
+    }
+
+    .timeline-item::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      display: block;
+      color: var(--blue);
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .timeline-item b {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .apply {
+      background: #10283d;
+      color: var(--white);
+    }
+
+    .apply .section-title p,
+    .apply .info-list {
+      color: rgba(255, 255, 255, .78);
+    }
+
+    .apply-layout {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .info-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .info-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .16);
+    }
+
+    .contact-box {
+      background: rgba(255, 255, 255, .09);
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .contact-box h3 {
+      margin: 0 0 14px;
+      font-size: 24px;
+    }
+
+    .contact-box p {
+      margin: 9px 0;
+      color: rgba(255, 255, 255, .82);
+    }
+
+    footer {
+      padding: 28px 24px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .notice-grid,
+      .feature-grid,
+      .course-grid,
+      .timeline,
+      .apply-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 78vh;
+        padding-top: 26px;
+      }
+
+      section {
+        padding: 42px 18px;
+      }
+
+      .notice {
+        margin-top: -36px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="topline">
+        <span class="tag">2026 年度招生</span>
+        <span class="tag">学院微专业项目</span>
+        <span class="tag">面向跨学科能力提升</span>
+      </div>
+      <h1>微专业招生宣传</h1>
+      <p class="lead">聚焦产业需求与学科交叉，帮助学生在主修专业之外拓展新方向、形成新能力、获得可展示的学习成果。</p>
+      <div class="actions">
+        <a class="button" href="#apply">查看报名方式</a>
+        <a class="button secondary" href="#courses">了解课程安排</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="notice" aria-label="招生关键信息">
+    <div class="section-inner">
+      <div class="notice-grid">
+        <div class="notice-item">
+          <strong>招生对象</strong>
+          <span>面向在校本科生，鼓励跨学院、跨专业报名</span>
+        </div>
+        <div class="notice-item">
+          <strong>培养周期</strong>
+          <span>原则上 1 学年完成，具体以学院通知为准</span>
+        </div>
+        <div class="notice-item">
+          <strong>学习方式</strong>
+          <span>课程学习、项目实践、成果展示相结合</span>
+        </div>
+        <div class="notice-item">
+          <strong>报名时间</strong>
+          <span>请以学院当年招生通知公布时间为准</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <div class="section-title">
+        <h2>为什么选择微专业</h2>
+        <p>微专业以“小切口、强应用、重实践”为特点，服务学生个性化发展与复合型能力培养。</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature">
+          <b>方向聚焦</b>
+          <p>围绕学院优势学科和社会需求设置课程模块，帮助学生快速进入一个清晰的学习方向。</p>
+        </article>
+        <article class="feature">
+          <b>实践牵引</b>
+          <p>通过案例研讨、项目训练、团队协作等方式，把知识学习转化为可呈现的作品与成果。</p>
+        </article>
+        <article class="feature">
+          <b>灵活修读</b>
+          <p>兼顾主修专业学习节奏，设置相对集中、路径明确的培养安排，降低跨专业学习门槛。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="courses">
+    <div class="section-inner">
+      <div class="section-title">
+        <h2>培养内容</h2>
+        <p>以下为宣传页展示模板，可根据本年度具体微专业名称、课程计划和招生简章进行替换。</p>
+      </div>
+      <div class="course-grid">
+        <article class="course">
+          <b>专业基础模块</b>
+          <p>建立方向认知，掌握核心概念、基本方法和问题分析框架。</p>
+        </article>
+        <article class="course">
+          <b>能力提升模块</b>
+          <p>强化工具使用、数据分析、设计表达、创新实践等关键能力。</p>
+        </article>
+        <article class="course">
+          <b>综合实践模块</b>
+          <p>围绕真实问题开展项目训练，完成结课报告、作品展示或竞赛申报。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <div class="section-title">
+        <h2>报名流程</h2>
+        <p>建议在正式发布前将具体时间节点、材料要求和审核方式补充到对应步骤中。</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <b>查看通知</b>
+          <p>阅读学院发布的微专业招生简章，确认招生对象、课程安排和修读要求。</p>
+        </div>
+        <div class="timeline-item">
+          <b>提交报名</b>
+          <p>按要求填写报名表，并在规定时间内提交个人信息和相关材料。</p>
+        </div>
+        <div class="timeline-item">
+          <b>资格审核</b>
+          <p>学院根据报名条件、学习基础和培养规模进行审核，公布拟录取名单。</p>
+        </div>
+        <div class="timeline-item">
+          <b>开始修读</b>
+          <p>入选学生按培养方案完成课程学习、实践训练和成果考核。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="apply" id="apply">
+    <div class="section-inner apply-layout">
+      <div>
+        <div class="section-title">
+          <h2>欢迎报名</h2>
+          <p>请关注学院网站和官方通知，按本年度招生安排完成报名。发布前请将以下信息替换为真实内容。</p>
+        </div>
+        <ul class="info-list">
+          <li><strong>报名入口：</strong>学院招生系统或指定报名表链接</li>
+          <li><strong>咨询地点：</strong>学院教务办公室</li>
+          <li><strong>材料要求：</strong>报名表、成绩单或学院要求的其他材料</li>
+          <li><strong>录取说明：</strong>择优录取，最终名单以学院公示为准</li>
+        </ul>
+      </div>
+      <aside class="contact-box">
+        <h3>咨询方式</h3>
+        <p>联系人：学院教务老师</p>
+        <p>联系电话：请填写学院招生咨询电话</p>
+        <p>电子邮箱：请填写学院招生邮箱</p>
+        <p>学院网址：请填写学院官方网站地址</p>
+      </aside>
+    </div>
+  </section>
+
+  <footer>
+    版权所有：请填写学院名称。页面内容以学院正式发布的招生简章为准。
+  </footer>
+</body>
+</html>
