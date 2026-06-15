@@ -13,7 +13,7 @@
 
 ```bash
 python3 -m pip install --target ./.deps qrcode
-PYTHONPATH=./.deps python3 generate_qr.py "https://学院网站/实际发布路径/micro-major-admissions.html"
+PYTHONPATH=./.deps python3 generate_qr.py "https://zhaochengniu.github.io/weizhuanye/"
 ```
 
 生成的 `admissions-qr.svg` 可粘贴到学校统一的微专业招生宣传材料中。
